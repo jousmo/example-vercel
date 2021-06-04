@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --config webpack.config.dev.js",
-    "script:create:env": "node ./scripts/create-env.js",
     "build:dev": "webpack --config webpack.config.dev.js",
-    "build:prod": "npm run script:create:env && webpack --config webpack.config.js"
+    "build:analyzer:dev": "npm run create:stats:dev && webpack-bundle-analyzer stats-dev.json",
+    "create:stats:dev": "webpack --config webpack.config.dev.js --profile --json > stats-dev.json",
+    "script:create:env": "node ./scripts/create-env.js",
+    "build:prod": "npm run script:create:env && webpack --config webpack.config.js",
+    "build:analyzer:prod": "npm run create:stats:prod && webpack-bundle-analyzer stats-prod.json",
+    "create:stats:prod": "webpack --config webpack.config.js --profile --json > stats-prod.json"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +35,7 @@
     "terser-webpack-plugin": "^5.1.3",
     "url-loader": "^4.1.1",
     "webpack": "^5.38.1",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
   }

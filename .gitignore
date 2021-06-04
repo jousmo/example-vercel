@@ -336,3 +336,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Stats Webpack Analyzer
+stats*.json
