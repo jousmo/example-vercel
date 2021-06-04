@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "script:create:env": "node ./scripts/create-env.js",
     "build:dev": "webpack --config webpack.config.dev.js",
-    "build:prod": "webpack --config webpack.config.js"
+    "build:prod": "npm run script:create:env && webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
