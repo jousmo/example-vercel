@@ -76,7 +76,9 @@ module.exports = {
     }),
     new Dotenv(),
     new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin({
+      analyzerMode: false
+    })
   ],
   optimization: {
     minimize: true,

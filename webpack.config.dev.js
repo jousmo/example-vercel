@@ -8,6 +8,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
@@ -72,7 +73,9 @@ module.exports = {
       ]
     }),
     new Dotenv(),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin({
+      analyzerMode: false
+    })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
