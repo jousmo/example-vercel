@@ -5,8 +5,10 @@ const CopyPlugin = require('copy-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
+  mode: 'production',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -71,7 +73,8 @@ module.exports = {
         { from: path.resolve(__dirname, 'src', 'assets/images'), to: 'assets/images' }
       ]
     }),
-    new Dotenv()
+    new Dotenv(),
+    new CleanWebpackPlugin()
   ],
   optimization: {
     minimize: true,
